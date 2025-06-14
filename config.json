@@ -2,7 +2,7 @@ name: Home Finance Manager
 version: "1.0.0"
 slug: home_finance_manager
 description: Sistema completo de gestão financeira doméstica para Home Assistant
-url: https://github.com/your-username/home-finance-addon
+url: https://github.com/DjTiagoSantos/home-finance-addon
 arch:
   - armhf
   - armv7
@@ -28,5 +28,5 @@ map:
   - share:rw
   - ssl
   - config:rw
-image: "ghcr.io/your-username/home-finance-addon-{arch}"
+image: "ghcr.io/DjTiagoSantos/home-finance-addon-{arch}"
 
