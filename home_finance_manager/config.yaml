@@ -1,0 +1,32 @@
+name: Home Finance Manager
+version: "1.0.0"
+slug: home_finance_manager
+description: Sistema completo de gestão financeira doméstica para Home Assistant
+url: https://github.com/your-username/home-finance-addon
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+startup: application
+boot: auto
+init: false
+options:
+  database_path: "/data/finance.db"
+  log_level: "info"
+  port: 8080
+schema:
+  database_path: str
+  log_level: list(debug|info|warning|error)
+  port: port
+ports:
+  8080/tcp: 8080
+ports_description:
+  8080/tcp: Interface web do Home Finance Manager
+map:
+  - share:rw
+  - ssl
+  - config:rw
+image: "ghcr.io/your-username/home-finance-addon-{arch}"
+

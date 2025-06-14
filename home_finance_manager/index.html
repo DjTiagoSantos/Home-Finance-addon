@@ -1,1 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Finance Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-wallet"></i> Finance Manager</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="menu-item" data-section="transactions">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Transações</span>
+                </li>
+                <li class="menu-item" data-section="accounts">
+                    <i class="fas fa-university"></i>
+                    <span>Contas</span>
+                </li>
+                <li class="menu-item" data-section="categories">
+                    <i class="fas fa-tags"></i>
+                    <span>Categorias</span>
+                </li>
+                <li class="menu-item" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Relatórios</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h1 id="page-title">Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="add-transaction-btn">
+                        <i class="fas fa-plus"></i> Nova Transação
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="dashboard-grid">
+                    <!-- Summary Cards -->
+                    <div class="summary-cards">
+                        <div class="card summary-card balance">
+                            <div class="card-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Saldo Total</h3>
+                                <p class="amount" id="total-balance">R$ 0,00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card summary-card income">
+                            <div class="card-icon">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Receitas do Mês</h3>
+                                <p class="amount" id="monthly-income">R$ 0,00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card summary-card expense">
+                            <div class="card-icon">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Despesas do Mês</h3>
+                                <p class="amount" id="monthly-expenses">R$ 0,00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card summary-card net">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Saldo do Mês</h3>
+                                <p class="amount" id="monthly-net">R$ 0,00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts -->
+                    <div class="charts-container">
+                        <div class="card chart-card">
+                            <h3>Despesas por Categoria</h3>
+                            <canvas id="expenses-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                    <div class="card recent-transactions">
+                        <h3>Transações Recentes</h3>
+                        <div id="recent-transactions-list">
+                            <!-- Transações serão carregadas aqui -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transactions Section -->
+            <section id="transactions-section" class="content-section">
+                <div class="transactions-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Todas as Transações</h3>
+                            <div class="filters">
+                                <select id="account-filter">
+                                    <option value="">Todas as Contas</option>
+                                </select>
+                                <select id="category-filter">
+                                    <option value="">Todas as Categorias</option>
+                                </select>
+                                <select id="type-filter">
+                                    <option value="">Todos os Tipos</option>
+                                    <option value="income">Receitas</option>
+                                    <option value="expense">Despesas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="transactions-list" id="transactions-list">
+                            <!-- Transações serão carregadas aqui -->
+                        </div>
+                        <div class="pagination" id="pagination">
+                            <!-- Paginação será carregada aqui -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accounts Section -->
+            <section id="accounts-section" class="content-section">
+                <div class="accounts-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Minhas Contas</h3>
+                            <button class="btn btn-primary" id="add-account-btn">
+                                <i class="fas fa-plus"></i> Nova Conta
+                            </button>
+                        </div>
+                        <div class="accounts-grid" id="accounts-grid">
+                            <!-- Contas serão carregadas aqui -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section id="categories-section" class="content-section">
+                <div class="categories-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Categorias</h3>
+                            <button class="btn btn-primary" id="add-category-btn">
+                                <i class="fas fa-plus"></i> Nova Categoria
+                            </button>
+                        </div>
+                        <div class="categories-tabs">
+                            <button class="tab-btn active" data-type="expense">Despesas</button>
+                            <button class="tab-btn" data-type="income">Receitas</button>
+                        </div>
+                        <div class="categories-grid" id="categories-grid">
+                            <!-- Categorias serão carregadas aqui -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports-section" class="content-section">
+                <div class="reports-container">
+                    <div class="card">
+                        <h3>Relatórios Financeiros</h3>
+                        <p>Funcionalidade em desenvolvimento...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Transaction Modal -->
+    <div id="transaction-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="transaction-modal-title">Nova Transação</h3>
+                <button class="close-btn" data-modal="transaction-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="transaction-description">Descrição</label>
+                    <input type="text" id="transaction-description" name="description" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="transaction-amount">Valor</label>
+                        <input type="number" id="transaction-amount" name="amount" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transaction-type">Tipo</label>
+                        <select id="transaction-type" name="transaction_type" required>
+                            <option value="expense">Despesa</option>
+                            <option value="income">Receita</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="transaction-account">Conta</label>
+                        <select id="transaction-account" name="account_id" required>
+                            <!-- Opções serão carregadas dinamicamente -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transaction-category">Categoria</label>
+                        <select id="transaction-category" name="category_id" required>
+                            <!-- Opções serão carregadas dinamicamente -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="transaction-date">Data</label>
+                    <input type="date" id="transaction-date" name="transaction_date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="transaction-notes">Observações</label>
+                    <textarea id="transaction-notes" name="notes" rows="3"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" data-modal="transaction-modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Account Modal -->
+    <div id="account-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="account-modal-title">Nova Conta</h3>
+                <button class="close-btn" data-modal="account-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="account-form">
+                <div class="form-group">
+                    <label for="account-name">Nome da Conta</label>
+                    <input type="text" id="account-name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="account-type">Tipo de Conta</label>
+                    <select id="account-type" name="account_type" required>
+                        <option value="checking">Conta Corrente</option>
+                        <option value="savings">Poupança</option>
+                        <option value="credit_card">Cartão de Crédito</option>
+                        <option value="cash">Dinheiro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="account-balance">Saldo Inicial</label>
+                    <input type="number" id="account-balance" name="initial_balance" step="0.01" value="0">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" data-modal="account-modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div id="category-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="category-modal-title">Nova Categoria</h3>
+                <button class="close-btn" data-modal="category-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="category-form">
+                <div class="form-group">
+                    <label for="category-name">Nome da Categoria</label>
+                    <input type="text" id="category-name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category-type">Tipo</label>
+                    <select id="category-type" name="category_type" required>
+                        <option value="expense">Despesa</option>
+                        <option value="income">Receita</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category-color">Cor</label>
+                        <input type="color" id="category-color" name="color" value="#007bff">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category-icon">Ícone</label>
+                        <input type="text" id="category-icon" name="icon" placeholder="fas fa-tag">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" data-modal="category-modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
 
