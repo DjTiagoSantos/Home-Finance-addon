@@ -1,0 +1,9 @@
+{
+  "domain": "financas",
+  "name": "Organizador Financeiro",
+  "version": "0.1.0",
+  "documentation": "https://github.com/DjTiagoSantos/Home-Finance-addon",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@DjTiagoSantos"]
+}

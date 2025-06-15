@@ -1,0 +1,10 @@
+{
+  "name": "Organizador Financeiro",
+  "country": "BR",
+  "zip": "00000-000",
+  "slug": "financas",
+  "description": "Gerencie contas a pagar, receitas e histórico financeiro no Home Assistant.",
+  "url": "https://github.com/DjTiagoSantos/Home-Finance-addon",
+  "type": "integration",
+  "version": "0.1.0"
+}
