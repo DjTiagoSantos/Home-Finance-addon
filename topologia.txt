@@ -1,0 +1,19 @@
+Home-Finance-addon/
+│
+├── custom_components/
+│   └── financas/
+│       ├── __init__.py
+│       ├── manifest.json
+│       ├── sensor.py       (opcional)
+│       ├── const.py        (opcional)
+│       ├── config_flow.py  (se tiver UI de configuração)
+│       ├── translations/   (traduções opcionais)
+│       │   └── en.json
+│       │   └── pt-BR.json
+│       └── services.yaml   (se expõe serviços)
+│
+├── info.md                 (descrição que aparece no HACS)
+├── repository.json         (arquivo que o HACS lê)
+├── LICENSE
+├── README.md
+└── .gitignore
