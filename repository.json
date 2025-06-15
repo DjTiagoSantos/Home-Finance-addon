@@ -1,15 +1,8 @@
 {
-  "name": "Home Finance Manager Repository",
-  "url": "https://github.com/DjTiagoSantos/Home-Finance-addon",
-  "maintainer": "DjTiagoSantos",
-  "addons": [
-    {
-      "name": "Home Finance Manager",
-      "slug": "home_finance_manager",
-      "description": "Sistema completo de gestão financeira doméstica para Home Assistant",
-      "version": "1.0.0",
-      "url": "https://github.com/DjTiagoSantos/Home-Finance-addon",
-      "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"]
-    }
-  ]
+  "name": "Organizador Financeiro",
+  "version": "0.1.0",
+  "slug": "financas",
+  "description": "Gerencie contas a pagar, receitas e histórico financeiro no Home Assistant.",
+  "url": "https://github.com/DjTiagoSantos/financas-homeassistant",
+  "type": "integration"
 }
