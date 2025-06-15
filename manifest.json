@@ -1,9 +1,0 @@
-{
-  "domain": "financas",
-  "name": "Finanças",
-  "version": "0.1.0",
-  "documentation": "https://github.com/DjTiagoSantos/financas-homeassistant",
-  "requirements": [],
-  "dependencies": [],
-  "codeowners": ["@DjTiagoSantos"]
-}
