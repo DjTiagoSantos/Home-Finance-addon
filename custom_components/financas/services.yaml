@@ -1,3 +1,80 @@
-atualizar_dados:
-  name: Atualizar Dados Financeiros
-  description: Atualiza as informações de contas e receitas.
+add_transaction:
+  name: Adicionar Transação
+  description: Adiciona uma nova transação financeira
+  fields:
+    account:
+      name: Conta
+      description: Nome da conta
+      required: true
+      selector:
+        text:
+    amount:
+      name: Valor
+      description: Valor da transação
+      required: true
+      selector:
+        number:
+          min: 0
+          step: 0.01
+          mode: box
+    description:
+      name: Descrição
+      description: Descrição da transação
+      required: true
+      selector:
+        text:
+    category:
+      name: Categoria
+      description: Categoria da transação
+      required: false
+      default: "Geral"
+      selector:
+        text:
+    type:
+      name: Tipo
+      description: Tipo da transação
+      required: false
+      default: "expense"
+      selector:
+        select:
+          options:
+            - label: "Receita"
+              value: "income"
+            - label: "Despesa"
+              value: "expense"
+
+add_account:
+  name: Adicionar Conta
+  description: Adiciona uma nova conta financeira
+  fields:
+    name:
+      name: Nome
+      description: Nome da conta
+      required: true
+      selector:
+        text:
+    type:
+      name: Tipo
+      description: Tipo da conta
+      required: true
+      selector:
+        select:
+          options:
+            - label: "Conta Corrente"
+              value: "conta_corrente"
+            - label: "Poupança"
+              value: "poupanca"
+            - label: "Investimento"
+              value: "investimento"
+            - label: "Cartão de Crédito"
+              value: "cartao"
+    initial_balance:
+      name: Saldo Inicial
+      description: Saldo inicial da conta
+      required: false
+      default: 0
+      selector:
+        number:
+          min: 0
+          step: 0.01
+          mode: box
