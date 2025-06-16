@@ -1,3 +1,4 @@
+![Mikrotik Logo](https://raw.githubusercontent.com/tomaae/homeassistant-mikrotik_router/master/docs/assets/images/ui/header.png)
 # Organizador Financeiro - Home Assistant
 
 Integração para organizar e acompanhar suas contas, receitas e despesas diretamente no Home Assistant.
