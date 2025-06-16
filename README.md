@@ -1,4 +1,4 @@
-![Mikrotik Logo](https://raw.githubusercontent.com/DjTiagoSantos/Home-Finance-addon/raw/main/icon.png)
+![Home Finance](https://raw.githubusercontent.com/DjTiagoSantos/Home-Finance-addon/raw/main/icon.png)
 # Organizador Financeiro - Home Assistant
 
 Integração para organizar e acompanhar suas contas, receitas e despesas diretamente no Home Assistant.
