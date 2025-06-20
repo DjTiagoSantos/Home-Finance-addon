@@ -4,6 +4,6 @@
   "version": "0.1.0",
   "documentation": "https://github.com/DjTiagoSantos/Home-Finance-addon",
   "issue_tracker": "https://github.com/DjTiagoSantos/Home-Finance-addon/issues",
-  "icon": "https://github.com/DjTiagoSantos/Home-Finance-addon/raw/main/icon.png",
+  "icon": "https://raw.githubusercontent.com/DjTiagoSantos/Home-Finance-addon/main/icon.png",
   "codeowners": ["@DjTiagoSantos"]
 }
