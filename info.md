@@ -19,7 +19,7 @@ https://github.com/DjTiagoSantos/Home-Finance-addon
 Adicione no seu `configuration.yaml`:
 
 ```yaml
-financas:
+home_finance:
 ```
 
 ## Desenvolvedor
