@@ -1,7 +1,7 @@
 {
   "domain": "home_finance",
   "name": "Organizador Financeiro",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "documentation": "https://github.com/DjTiagoSantos/Home-Finance-addon",
   "issue_tracker": "https://github.com/DjTiagoSantos/Home-Finance-addon/issues",
   "icon": "https://raw.githubusercontent.com/DjTiagoSantos/Home-Finance-addon/main/icon.png",
