@@ -1,7 +1,7 @@
 Home-Finance-addon/
 │
 ├── custom_components/
-│   └── financas/
+│   └── home_finance/
 │       ├── __init__.py
 │       ├── manifest.json
 │       ├── sensor.py       (opcional)
