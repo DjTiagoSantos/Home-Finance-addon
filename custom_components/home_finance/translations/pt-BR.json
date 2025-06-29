@@ -1,0 +1,5 @@
+{
+  "component.financas.title": "Organizador Financeiro",
+  "component.financas.description": "Gerencie suas contas, receitas e despesas diretamente no Home Assistant.",
+  "entity.sensor.saldo_financeiro.name": "Saldo Financeiro"
+}
