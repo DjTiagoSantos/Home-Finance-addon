@@ -6,5 +6,5 @@
   "description": "Gerencie contas a pagar, receitas e histórico financeiro no Home Assistant.",
   "url": "https://github.com/DjTiagoSantos/Home-Finance-addon",
   "type": "integration",
-  "version": "0.1.0"
+  "version": "0.1.2"
 }
