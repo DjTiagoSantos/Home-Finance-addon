@@ -1,5 +1,0 @@
-{
-  "component.financas.title": "Finance Organizer",
-  "component.financas.description": "Manage your accounts, income, and expenses directly in Home Assistant.",
-  "entity.sensor.saldo_financeiro.name": "Financial Balance"
-}
