@@ -1,0 +1,75 @@
+accounts:
+  - name: conta_corrente
+    type: conta_corrente
+    initial_balance: 0.01
+
+  - name: poupanca
+    type: poupanca
+    initial_balance: 0.00
+
+  - name: investimento_cdb
+    type: investimento
+    initial_balance: 0.00
+
+  - name: cartao_nubank
+    type: cartao
+    initial_balance: 0.00
+
+  - name: cartao_credito
+    type: cartao
+    initial_balance: 0.00
+
+  - name: Ceará
+    type: conta_corrente
+    initial_balance: 0.00
+
+  - name: Aluguel
+    type: conta_corrente
+    initial_balance: 0.00
+
+  - name: Energia
+    type: conta_corrente
+    initial_balance: 0.00
+
+categories:
+  - name: Salário
+    type: receita
+
+  - name: Rendimento de Investimentos
+    type: receita
+
+  - name: Serviços
+    type: receita
+
+  - name: Habitação
+    type: despesa
+
+  - name: Alimentação
+    type: despesa
+
+  - name: Transporte
+    type: despesa
+
+  - name: Lazer
+    type: despesa
+
+  - name: Educação
+    type: despesa
+
+  - name: Saúde
+    type: despesa
+
+  - name: Assinaturas
+    type: despesa
+
+  - name: Compras
+    type: despesa
+
+  - name: Boletos
+    type: despesa
+
+  - name: Impostos
+    type: despesa
+
+  - name: Outros
+    type: despesa
