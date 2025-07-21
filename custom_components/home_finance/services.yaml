@@ -1,10 +1,10 @@
 add_transaction:
   name: Adicionar Transação
-  description: Adiciona uma nova transação financeira
+  description: Adiciona uma nova transação financeira (receita ou despesa).
   fields:
     account:
       name: Conta
-      description: Nome da conta
+      description: Nome da conta onde a transação será registrada
       required: true
       selector:
         text:
@@ -25,7 +25,7 @@ add_transaction:
         text:
     category:
       name: Categoria
-      description: Categoria da transação
+      description: Categoria da transação (opcional)
       required: false
       default: "Geral"
       selector:
@@ -38,36 +38,41 @@ add_transaction:
       selector:
         select:
           options:
-            - label: "Receita"
-              value: "income"
-            - label: "Despesa"
-              value: "expense"
-
+            - label: Receita
+              value: income
+            - label: Despesa
+              value: expense
+    due_date:
+      name: Vencimento
+      description: Data de vencimento da transação
+      required: true
+      selector:
+        date:
 add_account:
   name: Adicionar Conta
-  description: Adiciona uma nova conta financeira
+  description: Adiciona uma nova conta bancária ao sistema.
   fields:
     name:
       name: Nome
-      description: Nome da conta
+      description: Nome da conta.
       required: true
       selector:
         text:
     type:
       name: Tipo
-      description: Tipo da conta
+      description: Tipo da conta (conta_corrente, poupanca, investimento, cartao).
       required: true
       selector:
         select:
           options:
-            - label: "Conta Corrente"
-              value: "conta_corrente"
-            - label: "Poupança"
-              value: "poupanca"
-            - label: "Investimento"
-              value: "investimento"
-            - label: "Cartão de Crédito"
-              value: "cartao"
+            - label: Conta Corrente
+              value: conta_corrente
+            - label: Poupança
+              value: poupanca
+            - label: Investimento
+              value: investimento
+            - label: Cartão de Crédito
+              value: cartao
     initial_balance:
       name: Saldo Inicial
       description: Saldo inicial da conta
@@ -78,3 +83,16 @@ add_account:
           min: 0
           step: 0.01
           mode: box
+reset_transactions:
+  name: Resetar Transações
+  description: Remove todas as transações e redefine os saldos das contas para o saldo inicial.
+mark_transaction_paid:
+  name: Marcar Transação como Paga
+  description: Marca uma transação como paga com base no ID da transação.
+  fields:
+    transaction_id:
+      name: ID da Transação
+      description: Identificador único da transação a ser marcada como paga
+      required: true
+      selector:
+        text:
