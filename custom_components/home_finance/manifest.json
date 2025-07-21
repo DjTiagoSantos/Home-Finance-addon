@@ -1,9 +1,9 @@
 {
-  "domain": "home_finance",
-  "name": "Organizador Financeiro",
-  "version": "0.1.2",
-  "documentation": "https://github.com/DjTiagoSantos/Home-Finance-addon",
-  "issue_tracker": "https://github.com/DjTiagoSantos/Home-Finance-addon/issues",
-  "icon": "https://raw.githubusercontent.com/DjTiagoSantos/Home-Finance-addon/main/icon.png",
-  "codeowners": ["@DjTiagoSantos"]
+  "name": "home_finance",
+  "content_in_root": false,
+  "zip_release": false,
+  "filename": "home_finance.zip",
+  "render_readme": true,
+  "domains": ["sensor"],
+  "homeassistant": "2025.1.0"
 }
